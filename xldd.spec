@@ -2,20 +2,19 @@
 
 Name:		xldd
 Summary:	ldd-like tool that works on all - including crosscompiled - ELF files
-Version:	0.1
+Version:	0.2
 Release:	1
 License:	GPLv3+
 Group:		Development/Tools
 Url:		https://github.com/OpenMandrivaSoftware/xldd
-Source0:	https://github.com/OpenMandrivaSoftware/xldd/archive/master.tar.gz
-# Really llvm-readelf, but that's part of the lld package for now
-Requires:	lld
+Source0:	https://github.com/OpenMandrivaSoftware/xldd/archive/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:	pkgconfig(libelf)
 
 %description
 ldd-like tool that works on all - including crosscompiled - ELF files
 
 %prep
-%autosetup -p1 -n xldd-master
+%autosetup -p1
 
 %build
 %make_build
